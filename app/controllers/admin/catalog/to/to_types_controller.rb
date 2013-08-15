@@ -9,7 +9,7 @@ class Admin::Catalog::To::ToTypesController < ApplicationController
 
   def show
     @mod_id = params[:id]
-    @man = ToType.find(:all, conditions: {:TYP_MOD_ID => @mod_id}, order: "Name ASC")
+    @man = ToType.find(@mod_id)#.find(:all, conditions: {:TYP_MOD_ID => @mod_id}, order: "Name ASC")
     # render :layout => 'admin'
   end
 
@@ -35,11 +35,14 @@ class Admin::Catalog::To::ToTypesController < ApplicationController
 
   def create
     @man = ToType.new(params[:to_type])
-    @mod_id = params[:mod_id]
-    @man.TYP_MOD_ID = @mod_id
+    # @mod_id = params[:mod_id]
+    # @man.TYP_MOD_ID = @mod_id
+    logger.debug "----#{@man}"
     if @man.save
-      redirect_to admin_catalog_to_to_type_path(@mod_id)
+    logger.debug "----#{@man.errors.inspect}"
+      redirect_to admin_catalog_to_to_type_path(@man)#@mod_id)
     else
+      render 'new'
       # render :layout => 'admin'
     end
   end
