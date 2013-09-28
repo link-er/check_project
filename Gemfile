@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -22,8 +22,15 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'thin'
 
+gem 'forem', github: "radar/forem", branch: "rails4"
+gem 'forem-gfm_formatter'
+gem 'friendly_id', github: "FriendlyId/friendly_id"
+gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
+gem 'kaminari'
+gem 'devise'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 1.2'
